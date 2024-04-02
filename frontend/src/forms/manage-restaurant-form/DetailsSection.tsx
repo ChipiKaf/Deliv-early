@@ -21,7 +21,7 @@ const DetailsSection = () => {
         )} />
         <div className="flex gap-4">
         <FormField control={control} name="country" render={({ field }) => (
-            <FormItem>
+            <FormItem  className="flex-1">
                 <FormLabel>Country</FormLabel>
                 <FormControl>
                     <Input { ...field } className="bg-white" />
@@ -30,7 +30,7 @@ const DetailsSection = () => {
             </FormItem>
         )} />
         <FormField control={control} name="city" render={({ field }) => (
-            <FormItem>
+            <FormItem className="flex-1">
                 <FormLabel>City</FormLabel>
                 <FormControl>
                     <Input { ...field } className="bg-white" />
