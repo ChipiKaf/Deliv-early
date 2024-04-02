@@ -37,3 +37,33 @@ export const validateMyuserRequest = [
   body("country").isString().notEmpty().withMessage("Country must be a string"),
   handleValidationErrors,
 ];
+
+// Validate my Restaurant request
+export const validateMyRestaurantRequest = [
+  body("restaurantName")
+    .isString()
+    .notEmpty()
+    .withMessage("Restaurant name must be a string"),
+  body("city").isString().notEmpty().withMessage("City must be a string"),
+  body("country").isString().notEmpty().withMessage("Country must be a string"),
+  body("deliveryPrice")
+    .isFloat({ min: 0 })
+    .notEmpty()
+    .withMessage("Delivery price must be a number"),
+  body("estimatedDeliveryTime")
+    .isInt({ min: 0 })
+    .withMessage("Estimated delivery time must be a positive integer"),
+  body("cuisines")
+    .isArray({ min: 1 })
+    .withMessage("Cuisines must be an array with at least one element"),
+  body("menuItems")
+    .isArray({ min: 1 })
+    .withMessage("Menu items must be an array with at least one element"),
+  body("imageUrl")
+    .isString()
+    .notEmpty()
+    .withMessage("Image URL must be a string"),
+    body("menuItems.*.name").notEmpty().withMessage("Menu item name is required"),
+    body("menuItems.*.price").isFloat({ min: 0 }).withMessage("Menu item price must be a number"),
+  handleValidationErrors,
+];
